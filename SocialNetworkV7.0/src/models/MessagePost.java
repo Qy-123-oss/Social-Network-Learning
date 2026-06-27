@@ -21,6 +21,7 @@ public class MessagePost extends LikedPost{
         }
     }
 
+    @Override
     public String display() {
         String str = super.display();
 

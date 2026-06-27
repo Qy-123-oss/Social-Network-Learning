@@ -33,6 +33,7 @@ public class EventPost extends Post {
         }
     }
 
+    @Override
     public String display() {
         String str = super.display();
 

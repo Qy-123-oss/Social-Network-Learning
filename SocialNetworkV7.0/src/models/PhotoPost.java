@@ -33,6 +33,7 @@ public class PhotoPost extends LikedPost{
         return filename;
     }
 
+    @Override
     public String display() {
         String str = super.display();
 

@@ -24,6 +24,7 @@ public class LikedPost extends Post {
         likes--;
     }
 
+    @Override
     public String display() {
         String str = super.display();
 
