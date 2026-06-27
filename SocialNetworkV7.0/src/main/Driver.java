@@ -301,18 +301,20 @@ public class Driver {
     //save all the posts in the newsFeed to a file on the hard disk
     private void savePosts() {
         try {
+            System.out.println("正在保存至文件：" + newsFeed.fileName());
             newsFeed.save();
         } catch (Exception e) {
-            System.err.println("Error writing to file: " + e);
+            System.err.println("写入文件失败：" + e);
         }
     }
 
     //load all the posts into the newsFeed from a file on the hard disk
     private void loadPosts() {
         try {
+            System.out.println("正在读取文件：" + newsFeed.fileName());
             newsFeed.load();
         } catch (Exception e) {
-            System.err.println("Error reading from file: " + e);
+            System.err.println("读取文件失败：" + e);
         }
     }
 

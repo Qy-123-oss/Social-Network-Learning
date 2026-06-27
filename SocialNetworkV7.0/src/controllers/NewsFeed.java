@@ -3,6 +3,7 @@ package controllers;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import models.*;
+import utils.ISerializer;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -10,12 +11,19 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-public class NewsFeed {
+public class NewsFeed implements ISerializer {
 
     private ArrayList<Post> posts;
 
     public NewsFeed() {
         posts = new ArrayList<Post>();
+    }
+
+    public ArrayList<Post> getPosts() {
+        return posts;
+    }
+    public void setPosts(ArrayList<Post> posts) {
+        this.posts = posts;
     }
 
     public boolean addPost(Post post) {
@@ -208,6 +216,7 @@ public class NewsFeed {
      *
      * @throws Exception  An exception is thrown if an error occurred during the load e.g. a missing file.
      */
+    @Override
     @SuppressWarnings("unchecked")
     public void load() throws Exception {
         //list of classes that you wish to include in the serialisation, separated by a comma
@@ -232,6 +241,7 @@ public class NewsFeed {
      *
      * @throws Exception  An exception is thrown if an error occurred during the save e.g. drive is full.
      */
+    @Override
     public void save() throws Exception {
         XStream xstream = new XStream(new DomDriver());
         ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("posts.xml"));
@@ -265,4 +275,8 @@ public class NewsFeed {
         return false;
     }
 
+    @Override
+    public String fileName() {
+        return "posts.xml";
+    }
 }

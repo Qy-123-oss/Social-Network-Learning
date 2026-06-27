@@ -1,5 +1,7 @@
 package models;
 
+import utils.Utilities;
+
 public class LikedPost extends Post {
 
     private int likes = 0;
@@ -13,15 +15,19 @@ public class LikedPost extends Post {
     }
 
     public void setLikes(int likes) {
-        this.likes = likes;
+        if (Utilities.validRange(likes, 0, 10000)) {
+            this.likes = likes;
+        }
     }
 
     public void likeAPost(){
-        likes++;
+        setLikes(likes + 1);
     }
 
     public void unlikeAPost(){
-        likes--;
+        if (likes > 0) {
+            likes--;
+        }
     }
 
     @Override
