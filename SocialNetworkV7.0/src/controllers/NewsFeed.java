@@ -24,15 +24,12 @@ public class NewsFeed {
 
     public String show() {
         String str = "";
-
         for(Post post: posts) {
-            str += posts.indexOf(post) + ": " + post.display() + "\n";
+            str += posts.indexOf(post) + ": " + post.displayCondensed() + "\n";
         }
-
         if (str.isEmpty()){
             return "No Posts";
-        }
-        else {
+        } else {
             return str;
         }
     }
@@ -214,7 +211,9 @@ public class NewsFeed {
     @SuppressWarnings("unchecked")
     public void load() throws Exception {
         //list of classes that you wish to include in the serialisation, separated by a comma
-        Class<?>[] classes = new Class[] { EventPost.class, MessagePost.class, PhotoPost.class, Post.class};
+        Class<?>[] classes = new Class[] {
+                ArrayList.class, EventPost.class, LikedPost.class, MessagePost.class, PhotoPost.class, Post.class
+        };
 
         //setting up the xstream object with default security and the above classes
         XStream xstream = new XStream(new DomDriver());

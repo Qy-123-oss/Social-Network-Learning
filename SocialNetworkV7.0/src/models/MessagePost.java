@@ -30,4 +30,9 @@ public class MessagePost extends LikedPost{
         }
         return str;
     }
+
+    @Override
+    public String displayCondensed() {
+        return super.displayCondensed() + ": Message(" + message + ")";
+    }
 }

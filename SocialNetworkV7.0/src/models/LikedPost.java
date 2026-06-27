@@ -38,4 +38,13 @@ public class LikedPost extends Post {
         return str;
     }
 
+    @Override
+    public String displayCondensed() {
+        if(likes > 0) {
+            return super.getAuthor() + " (" + likes + " likes) ";
+        } else {
+            return super.getAuthor() + " (0 likes) ";
+        }
+    }
+
 }

@@ -47,4 +47,9 @@ public class PhotoPost extends LikedPost{
 
         return str;
     }
+
+    @Override
+    public String displayCondensed() {
+        return super.displayCondensed() + ": Photo(" + caption + ", " + filename + ")";
+    }
 }

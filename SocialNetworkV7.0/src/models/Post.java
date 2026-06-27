@@ -2,7 +2,7 @@ package models;
 
 import utils.Utilities;
 
-public class Post {
+public abstract class Post {
 
     private String author = "";
 
@@ -23,4 +23,6 @@ public class Post {
     public String display() {
         return (author + "\n");
     }
+
+    public abstract String displayCondensed();
 }
