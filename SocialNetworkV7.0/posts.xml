@@ -1,0 +1,20 @@
+<object-stream>
+  <list>
+    <models.MessagePost>
+      <author>message</author>
+      <likes>-1</likes>
+      <message>message</message>
+    </models.MessagePost>
+    <models.PhotoPost>
+      <author>photo</author>
+      <likes>2</likes>
+      <caption>photo</caption>
+      <filename>photo</filename>
+    </models.PhotoPost>
+    <models.EventPost>
+      <author>event</author>
+      <eventName>event</eventName>
+      <eventCost>5.0</eventCost>
+    </models.EventPost>
+  </list>
+</object-stream>
